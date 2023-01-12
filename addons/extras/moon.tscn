@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Shader" path="res://addons/shaders/body.gdshader" id="1_44m2i"]
+[ext_resource type="Texture2D" uid="uid://513i2aay4dwy" path="res://addons/extras/noises/craters.png" id="2_8ehhm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l4rno"]
+render_priority = 0
+shader = ExtResource("1_44m2i")
+shader_parameter/color_1 = Color(0.192157, 0.188235, 0.180392, 1)
+shader_parameter/color_1_treshold = 0.218
+shader_parameter/color_1_roughness = 0.0
+shader_parameter/color_2 = Color(0.580392, 0.564706, 0.552941, 1)
+shader_parameter/color_2_treshold = 0.419
+shader_parameter/color_3 = Color(0.854902, 0.85098, 0.843137, 1)
+shader_parameter/color_3_treshold = 0.526
+shader_parameter/color_4 = Color(0.941176, 0.941176, 0.941176, 1)
+shader_parameter/color_4_treshold = 0.693
+shader_parameter/color_5 = Color(0.764706, 0.760784, 0.745098, 1)
+shader_parameter/color_5_treshold = 1.0
+shader_parameter/noise_gaseous = false
+shader_parameter/noise_scale = 1.212
+shader_parameter/noise = ExtResource("2_8ehhm")
+
+[sub_resource type="SphereMesh" id="SphereMesh_wxhma"]
+material = SubResource("ShaderMaterial_l4rno")
+
+[node name="Moon" type="MeshInstance3D"]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0)
+mesh = SubResource("SphereMesh_wxhma")

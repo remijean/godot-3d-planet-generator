@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://3ect70q5l6bt"]
+
+[ext_resource type="PackedScene" path="res://addons/planet_with_shader.tscn" id="1_mh6bw"]
+[ext_resource type="PackedScene" uid="uid://ykchwblved5o" path="res://addons/planet_with_layer.tscn" id="2_j1hjd"]
+[ext_resource type="PackedScene" uid="uid://jyhm1h0l2oun" path="res://addons/extras/planet_rotation.tscn" id="3_51b5i"]
+[ext_resource type="PackedScene" uid="uid://qwedkhw6l1k5" path="res://addons/extras/planet_gaseous.tscn" id="4_kq7xu"]
+[ext_resource type="PackedScene" path="res://addons/extras/moon.tscn" id="5_4kowt"]
+[ext_resource type="PackedScene" uid="uid://b0bfy7hpjosq3" path="res://addons/extras/sun.tscn" id="6_7xwvl"]
+
+[sub_resource type="Environment" id="Environment_icub5"]
+background_mode = 1
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 1.0
+glow_bloom = 0.2
+glow_blend_mode = 0
+
+[node name="Example" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 150)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_icub5")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1000, 0)
+light_cull_mask = 4294967293
+shadow_enabled = true
+sky_mode = 1
+
+[node name="Planets" type="Node3D" parent="."]
+
+[node name="PlanetWithShader" parent="Planets" instance=ExtResource("1_mh6bw")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, -60, 0, 0)
+
+[node name="PlanetWithLayer" parent="Planets" instance=ExtResource("2_j1hjd")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 60, 0, 0)
+
+[node name="PlanetsExtra" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 300, 0, 0)
+
+[node name="PlanetRotation" parent="PlanetsExtra" instance=ExtResource("3_51b5i")]
+transform = Transform3D(88.6214, 0, 15.6924, 0, 90, 0, -15.6924, 0, 88.6214, 0, 0, 0)
+
+[node name="PlanetGaseous" parent="PlanetsExtra" instance=ExtResource("4_kq7xu")]
+transform = Transform3D(120, 0, 0, 0, 120, 0, 0, 0, 120, 130, 0, 0)
+
+[node name="Moon" parent="PlanetsExtra" instance=ExtResource("5_4kowt")]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 240, 0, 0)
+skeleton = NodePath("../..")
+
+[node name="Sun" parent="PlanetsExtra" instance=ExtResource("6_7xwvl")]
+transform = Transform3D(400, 0, 0, 0, 400, 0, 0, 0, 400, 600, 0, 0)
+layers = 2
+skeleton = NodePath("../..")

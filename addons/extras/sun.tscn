@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://b0bfy7hpjosq3"]
+
+[ext_resource type="Shader" path="res://addons/shaders/body.gdshader" id="1_kd5tp"]
+[ext_resource type="Shader" path="res://addons/shaders/atmosphere.gdshader" id="1_ng8d0"]
+[ext_resource type="Texture2D" uid="uid://dxjapfacsp3fk" path="res://addons/extras/noises/waves.tres" id="2_2f8ar"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6b4el"]
+render_priority = 0
+shader = ExtResource("1_kd5tp")
+shader_parameter/color_1 = Color(0.435294, 0.129412, 0, 1)
+shader_parameter/color_1_treshold = 0.4
+shader_parameter/color_1_roughness = 0.0
+shader_parameter/color_2 = Color(1, 0.403922, 0, 1)
+shader_parameter/color_2_treshold = 0.5
+shader_parameter/color_3 = Color(1, 0.639216, 0.25098, 1)
+shader_parameter/color_3_treshold = 0.6
+shader_parameter/color_4 = Color(1, 0.403922, 0, 1)
+shader_parameter/color_4_treshold = 0.7
+shader_parameter/color_5 = Color(1, 0.639216, 0.25098, 1)
+shader_parameter/color_5_treshold = 1.0
+shader_parameter/emit = true
+shader_parameter/noise_gaseous = true
+shader_parameter/noise_gaseous_speed = 0.08
+shader_parameter/noise_scale = 10.0
+shader_parameter/noise = ExtResource("2_2f8ar")
+
+[sub_resource type="SphereMesh" id="SphereMesh_rrqai"]
+material = SubResource("ShaderMaterial_6b4el")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fag0l"]
+render_priority = 0
+shader = ExtResource("1_ng8d0")
+shader_parameter/color_1 = Color(0.435294, 0.129412, 0, 1)
+shader_parameter/color_2 = Color(1, 0.639216, 0.25098, 1)
+shader_parameter/alpha = 0.55
+shader_parameter/amount = 4.5
+shader_parameter/intensity = 4.0
+shader_parameter/emit = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_6bher"]
+material = SubResource("ShaderMaterial_fag0l")
+
+[node name="Sun" type="MeshInstance3D"]
+transform = Transform3D(400, 0, 0, 0, 400, 0, 0, 0, 400, 0, 0, 0)
+mesh = SubResource("SphereMesh_rrqai")
+
+[node name="Atmosphere" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.04, 0, 0, 0, 1.04, 0, 0, 0, 1.04, 0, 0, 0)
+mesh = SubResource("SphereMesh_6bher")
