@@ -1,8 +1,8 @@
 [gd_scene load_steps=13 format=3]
 
-[ext_resource type="Texture2D" uid="uid://xndytbjhb5in" path="res://addons/noises/planet_lava.tres" id="2_ndv8o"]
-[ext_resource type="Shader" path="res://addons/shaders/body.gdshader" id="3_wyf4x"]
-[ext_resource type="Shader" path="res://addons/shaders/atmosphere.gdshader" id="4_m146g"]
+[ext_resource type="Texture2D" uid="uid://xndytbjhb5in" path="res://addons/naejimer_3d_planet_generator/noises/planet_lava.tres" id="2_ndv8o"]
+[ext_resource type="Shader" path="res://addons/naejimer_3d_planet_generator/shaders/body.gdshader" id="3_wyf4x"]
+[ext_resource type="Shader" path="res://addons/naejimer_3d_planet_generator/shaders/atmosphere.gdshader" id="4_m146g"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6wpjb"]
 render_priority = 0

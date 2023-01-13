@@ -1,12 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://cfpg7xkvqhqd0"]
+[gd_scene load_steps=13 format=3 uid="uid://dbexddi1rwbt4"]
 
-[ext_resource type="Texture2D" uid="uid://6maxob4srf50" path="res://addons/noises/planet_sand.tres" id="2_gxhd5"]
-[ext_resource type="Shader" path="res://addons/shaders/body.gdshader" id="3_qxc8h"]
-[ext_resource type="Shader" path="res://addons/shaders/atmosphere.gdshader" id="4_ao7pt"]
+[ext_resource type="Shader" path="res://addons/naejimer_3d_planet_generator/shaders/body.gdshader" id="1_xf64t"]
+[ext_resource type="Texture2D" uid="uid://6maxob4srf50" path="res://addons/naejimer_3d_planet_generator/noises/planet_sand.tres" id="2_lpkdi"]
+[ext_resource type="Shader" path="res://addons/naejimer_3d_planet_generator/shaders/atmosphere.gdshader" id="3_gd12t"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cr8r6"]
 render_priority = 0
-shader = ExtResource("3_qxc8h")
+shader = ExtResource("1_xf64t")
+shader_parameter/emit = false
 shader_parameter/color_1 = Color(0.984314, 0.882353, 0.733333, 1)
 shader_parameter/color_1_treshold = 0.51
 shader_parameter/color_1_roughness = 0.0
@@ -19,18 +20,17 @@ shader_parameter/color_4 = Color(0.470588, 0.321569, 0.215686, 1)
 shader_parameter/color_4_treshold = 0.764
 shader_parameter/color_5 = Color(0.32549, 0.266667, 0.219608, 1)
 shader_parameter/color_5_treshold = 1.0
-shader_parameter/emit = false
 shader_parameter/noise_gaseous = false
 shader_parameter/noise_gaseous_speed = 0.0025
 shader_parameter/noise_scale = 1.283
-shader_parameter/noise = ExtResource("2_gxhd5")
+shader_parameter/noise = ExtResource("2_lpkdi")
 
 [sub_resource type="SphereMesh" id="SphereMesh_31s4g"]
 material = SubResource("ShaderMaterial_cr8r6")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cvdvw"]
 render_priority = 0
-shader = ExtResource("4_ao7pt")
+shader = ExtResource("3_gd12t")
 shader_parameter/color_1 = Color(0.572549, 0.380392, 0.223529, 1)
 shader_parameter/color_2 = Color(0.882353, 0.670588, 0.505882, 1)
 shader_parameter/alpha = 0.513

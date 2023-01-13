@@ -1,12 +1,12 @@
 [gd_scene load_steps=13 format=3 uid="uid://c1lxtdgeggnej"]
 
-[ext_resource type="Shader" path="res://addons/shaders/body.gdshader" id="1_kd5tp"]
-[ext_resource type="Shader" path="res://addons/shaders/atmosphere.gdshader" id="1_ng8d0"]
-[ext_resource type="Texture2D" uid="uid://dxjapfacsp3fk" path="res://addons/noises/star.tres" id="2_5vvxo"]
+[ext_resource type="Shader" path="res://addons/naejimer_3d_planet_generator/shaders/body.gdshader" id="1_b0k00"]
+[ext_resource type="Texture2D" uid="uid://dxjapfacsp3fk" path="res://addons/naejimer_3d_planet_generator/noises/star.tres" id="2_8dsqn"]
+[ext_resource type="Shader" path="res://addons/naejimer_3d_planet_generator/shaders/atmosphere.gdshader" id="3_0hp1p"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6b4el"]
 render_priority = 0
-shader = ExtResource("1_kd5tp")
+shader = ExtResource("1_b0k00")
 shader_parameter/emit = true
 shader_parameter/color_1 = Color(0.435294, 0.129412, 0, 1)
 shader_parameter/color_1_treshold = 0.4
@@ -23,14 +23,14 @@ shader_parameter/color_5_treshold = 1.0
 shader_parameter/noise_gaseous = true
 shader_parameter/noise_gaseous_speed = 0.05
 shader_parameter/noise_scale = 3.0
-shader_parameter/noise = ExtResource("2_5vvxo")
+shader_parameter/noise = ExtResource("2_8dsqn")
 
 [sub_resource type="SphereMesh" id="SphereMesh_rrqai"]
 material = SubResource("ShaderMaterial_6b4el")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fag0l"]
 render_priority = 0
-shader = ExtResource("1_ng8d0")
+shader = ExtResource("3_0hp1p")
 shader_parameter/color_1 = Color(0.435294, 0.129412, 0, 1)
 shader_parameter/color_2 = Color(1, 0.639216, 0.25098, 1)
 shader_parameter/alpha = 0.55

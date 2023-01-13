@@ -1,23 +1,24 @@
 [gd_scene load_steps=15 format=3 uid="uid://yo6lqoksa53k"]
 
-[ext_resource type="Shader" path="res://addons/shaders/body.gdshader" id="1_u80a2"]
-[ext_resource type="Texture2D" uid="uid://b4nta4b1auodv" path="res://addons/noises/planet_terrestrial.tres" id="2_s3a0w"]
-[ext_resource type="Shader" path="res://addons/shaders/clouds.gdshader" id="3_sqc1r"]
-[ext_resource type="Shader" path="res://addons/shaders/atmosphere.gdshader" id="4_cqhe8"]
+[ext_resource type="Shader" path="res://addons/naejimer_3d_planet_generator/shaders/clouds.gdshader" id="1_gtd8t"]
+[ext_resource type="Texture2D" uid="uid://b4nta4b1auodv" path="res://addons/naejimer_3d_planet_generator/noises/planet_terrestrial.tres" id="2_maa8i"]
+[ext_resource type="Shader" path="res://addons/naejimer_3d_planet_generator/shaders/body.gdshader" id="3_jpfjm"]
+[ext_resource type="Shader" path="res://addons/naejimer_3d_planet_generator/shaders/atmosphere.gdshader" id="4_dqmhf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c8avg"]
 render_priority = 0
-shader = ExtResource("3_sqc1r")
+shader = ExtResource("1_gtd8t")
 shader_parameter/speed = 0.005
 shader_parameter/brightness = 0.5
 shader_parameter/threshold = 1.2
 shader_parameter/fluffiness = 0.1
-shader_parameter/noise_texture = ExtResource("2_s3a0w")
+shader_parameter/noise_texture = ExtResource("2_maa8i")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d0a0i"]
 render_priority = 0
 next_pass = SubResource("ShaderMaterial_c8avg")
-shader = ExtResource("1_u80a2")
+shader = ExtResource("3_jpfjm")
+shader_parameter/emit = false
 shader_parameter/color_1 = Color(0.17, 0.55, 1, 1)
 shader_parameter/color_1_treshold = 0.54
 shader_parameter/color_1_roughness = 0.1
@@ -30,18 +31,17 @@ shader_parameter/color_4 = Color(0.27, 0.62, 0.42, 1)
 shader_parameter/color_4_treshold = 0.7
 shader_parameter/color_5 = Color(1, 1, 1, 1)
 shader_parameter/color_5_treshold = 1.0
-shader_parameter/emit = false
 shader_parameter/noise_gaseous = false
 shader_parameter/noise_gaseous_speed = 0.0025
 shader_parameter/noise_scale = 1.0
-shader_parameter/noise = ExtResource("2_s3a0w")
+shader_parameter/noise = ExtResource("2_maa8i")
 
 [sub_resource type="SphereMesh" id="SphereMesh_h4ifb"]
 material = SubResource("ShaderMaterial_d0a0i")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nmd1c"]
 render_priority = 0
-shader = ExtResource("4_cqhe8")
+shader = ExtResource("4_dqmhf")
 shader_parameter/color_1 = Color(0, 0.12, 0.27, 1)
 shader_parameter/color_2 = Color(0.63, 0.78, 1, 1)
 shader_parameter/alpha = 0.3
@@ -88,7 +88,7 @@ nodes/TimeScale/position = Vector2(140, 140)
 node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Animation"]
 
 [node name="PlanetTerrestrial" type="MeshInstance3D"]
-transform = Transform3D(399.399, 0, 21.9215, 0, 400, 0, -21.9215, 0, 399.399, 0, 0, 0)
+transform = Transform3D(397.582, 0, 43.9193, 0, 400, 0, -43.9193, 0, 397.582, 0, 0, 0)
 mesh = SubResource("SphereMesh_h4ifb")
 skeleton = NodePath(".")
 

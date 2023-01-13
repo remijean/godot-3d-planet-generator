@@ -1,23 +1,23 @@
 [gd_scene load_steps=15 format=3 uid="uid://biy37ccrqck53"]
 
-[ext_resource type="Shader" path="res://addons/shaders/clouds.gdshader" id="1_oq3cf"]
-[ext_resource type="Texture2D" uid="uid://dubbc0h804fot" path="res://addons/noises/planet_ice.tres" id="2_gmlef"]
-[ext_resource type="Shader" path="res://addons/shaders/body.gdshader" id="3_h2vdp"]
-[ext_resource type="Shader" path="res://addons/shaders/atmosphere.gdshader" id="4_8tyt5"]
+[ext_resource type="Shader" path="res://addons/naejimer_3d_planet_generator/shaders/clouds.gdshader" id="1_nrj4t"]
+[ext_resource type="Texture2D" uid="uid://dubbc0h804fot" path="res://addons/naejimer_3d_planet_generator/noises/planet_ice.tres" id="2_83j0s"]
+[ext_resource type="Shader" path="res://addons/naejimer_3d_planet_generator/shaders/body.gdshader" id="3_twxga"]
+[ext_resource type="Shader" path="res://addons/naejimer_3d_planet_generator/shaders/atmosphere.gdshader" id="4_t8w63"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xtehg"]
 render_priority = 0
-shader = ExtResource("1_oq3cf")
+shader = ExtResource("1_nrj4t")
 shader_parameter/speed = 0.005
 shader_parameter/brightness = 0.728
 shader_parameter/threshold = 1.102
 shader_parameter/fluffiness = 0.376
-shader_parameter/noise_texture = ExtResource("2_gmlef")
+shader_parameter/noise_texture = ExtResource("2_83j0s")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rin7o"]
 render_priority = 0
 next_pass = SubResource("ShaderMaterial_xtehg")
-shader = ExtResource("3_h2vdp")
+shader = ExtResource("3_twxga")
 shader_parameter/emit = false
 shader_parameter/color_1 = Color(0.309804, 0.611765, 0.784314, 1)
 shader_parameter/color_1_treshold = 0.287
@@ -34,14 +34,14 @@ shader_parameter/color_5_treshold = 1.0
 shader_parameter/noise_gaseous = false
 shader_parameter/noise_gaseous_speed = 0.0025
 shader_parameter/noise_scale = 1.0
-shader_parameter/noise = ExtResource("2_gmlef")
+shader_parameter/noise = ExtResource("2_83j0s")
 
 [sub_resource type="SphereMesh" id="SphereMesh_5tvr0"]
 material = SubResource("ShaderMaterial_rin7o")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_irarj"]
 render_priority = 0
-shader = ExtResource("4_8tyt5")
+shader = ExtResource("4_t8w63")
 shader_parameter/color_1 = Color(0.113725, 0.290196, 0.388235, 1)
 shader_parameter/color_2 = Color(0.631373, 0.823529, 0.941176, 1)
 shader_parameter/alpha = 0.6
@@ -88,7 +88,7 @@ nodes/TimeScale/position = Vector2(140, 140)
 node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Animation"]
 
 [node name="PlanetIce" type="MeshInstance3D"]
-transform = Transform3D(361.032, 0, 118.557, 0, 380, 0, -118.557, 0, 361.032, 0, 0, 0)
+transform = Transform3D(379.946, 0, 6.36713, 0, 380, 0, -6.36713, 0, 379.946, 0, 0, 0)
 mesh = SubResource("SphereMesh_5tvr0")
 skeleton = NodePath(".")
 
