@@ -20,21 +20,7 @@ The project contains seven example planets:
 - Gaseous planet
 - Star
 
-## FAQ
-
-> How to add shaders in my project?
-
-Import the folder `naejimer_3d_planet_generator` in the folder `addons` of your project.
-
-> How to use shaders in my project?
-
-Two methods:
-- Import directly one of the seven examples in your scene.
-- Create a `MeshInstance3D` of type `SphereMesh` and add the shaders from the `shaders` folder.
-
-> Why the atmosphere does not glow?
-
-For best results, enable the glow and bloom options in your `WorldEnvironment`.
+ **FAQ and more information: [https://naejimer.itch.io/godot-3d-planet-generator](https://naejimer.itch.io/godot-3d-planet-generator)**
 
 ## Screenshots
 
