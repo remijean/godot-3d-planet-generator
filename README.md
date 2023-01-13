@@ -1,1 +1,3 @@
-# godot-3d-planet-generator
+# Godot 3D Planet Generator
+
+![Screenshot](screenshots/planet_terrestrial.png)
