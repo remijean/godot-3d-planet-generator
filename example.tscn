@@ -1,11 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://3ect70q5l6bt"]
+[gd_scene load_steps=8 format=3 uid="uid://ctno4ft0ab5p"]
 
-[ext_resource type="PackedScene" path="res://addons/planet_with_shader.tscn" id="1_mh6bw"]
-[ext_resource type="PackedScene" uid="uid://ykchwblved5o" path="res://addons/planet_with_layer.tscn" id="2_j1hjd"]
-[ext_resource type="PackedScene" uid="uid://jyhm1h0l2oun" path="res://addons/extras/planet_rotation.tscn" id="3_51b5i"]
-[ext_resource type="PackedScene" uid="uid://qwedkhw6l1k5" path="res://addons/extras/planet_gaseous.tscn" id="4_kq7xu"]
-[ext_resource type="PackedScene" path="res://addons/extras/moon.tscn" id="5_4kowt"]
-[ext_resource type="PackedScene" uid="uid://b0bfy7hpjosq3" path="res://addons/extras/sun.tscn" id="6_7xwvl"]
+[ext_resource type="PackedScene" path="res://addons/scenes/planet_terrestrial.tscn" id="2_j1hjd"]
+[ext_resource type="PackedScene" uid="uid://ctb16ux0txuvm" path="res://addons/scenes/planet_lava.tscn" id="3_3uru6"]
+[ext_resource type="PackedScene" path="res://addons/scenes/planet_ice.tscn" id="3_mm0k4"]
+[ext_resource type="PackedScene" path="res://addons/scenes/planet_gaseous.tscn" id="4_bn1xh"]
+[ext_resource type="PackedScene" uid="uid://n4tlbqqhk7rh" path="res://addons/scenes/planet_no_atmosphere.tscn" id="4_mbgn3"]
+[ext_resource type="PackedScene" path="res://addons/scenes/star.tscn" id="6_7xwvl"]
 
 [sub_resource type="Environment" id="Environment_icub5"]
 background_mode = 1
@@ -17,40 +17,36 @@ glow_blend_mode = 0
 
 [node name="Example" type="Node3D"]
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 150)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_icub5")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1000, 0)
-light_cull_mask = 4294967293
-shadow_enabled = true
-sky_mode = 1
-
 [node name="Planets" type="Node3D" parent="."]
 
-[node name="PlanetWithShader" parent="Planets" instance=ExtResource("1_mh6bw")]
-transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, -60, 0, 0)
-
-[node name="PlanetWithLayer" parent="Planets" instance=ExtResource("2_j1hjd")]
-transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 60, 0, 0)
-
-[node name="PlanetsExtra" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 300, 0, 0)
-
-[node name="PlanetRotation" parent="PlanetsExtra" instance=ExtResource("3_51b5i")]
-transform = Transform3D(88.6214, 0, 15.6924, 0, 90, 0, -15.6924, 0, 88.6214, 0, 0, 0)
-
-[node name="PlanetGaseous" parent="PlanetsExtra" instance=ExtResource("4_kq7xu")]
-transform = Transform3D(120, 0, 0, 0, 120, 0, 0, 0, 120, 130, 0, 0)
-
-[node name="Moon" parent="PlanetsExtra" instance=ExtResource("5_4kowt")]
-transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 240, 0, 0)
+[node name="PlanetNoAtmosphere" parent="Planets" instance=ExtResource("4_mbgn3")]
+transform = Transform3D(191.754, 0, 56.8396, 0, 200, 0, -56.8396, 0, 191.754, 0, 0, 0)
 skeleton = NodePath("../..")
 
-[node name="Sun" parent="PlanetsExtra" instance=ExtResource("6_7xwvl")]
-transform = Transform3D(400, 0, 0, 0, 400, 0, 0, 0, 400, 600, 0, 0)
+[node name="PlanetIce" parent="Planets" instance=ExtResource("3_mm0k4")]
+transform = Transform3D(379.369, 0, 21.8887, 0, 380, 0, -21.8887, 0, 379.369, 369.316, 0, 0)
+
+[node name="PlanetLava" parent="Planets" instance=ExtResource("3_3uru6")]
+transform = Transform3D(379.369, 0, 21.8887, 0, 380, 0, -21.8887, 0, 379.369, 844.344, 0, 0)
+
+[node name="PlanetTerrestrial" parent="Planets" instance=ExtResource("2_j1hjd")]
+transform = Transform3D(399.336, 0, 23.0407, 0, 400, 0, -23.0407, 0, 399.336, 1422.46, 0, 0)
+
+[node name="PlanetGaseous" parent="Planets" instance=ExtResource("4_bn1xh")]
+transform = Transform3D(797.924, 0, 57.5838, 0, 800, 0, -57.5838, 0, 797.924, 2348.46, 0, 0)
+skeleton = NodePath("../..")
+
+[node name="Star" parent="Planets" instance=ExtResource("6_7xwvl")]
+transform = Transform3D(1150.52, 0, 341.036, 0, 1200, 0, -341.036, 0, 1150.52, 3800.87, 0, 0)
 layers = 2
 skeleton = NodePath("../..")
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
+environment = SubResource("Environment_icub5")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1000, 0)
+light_cull_mask = 4294967293
+sky_mode = 1

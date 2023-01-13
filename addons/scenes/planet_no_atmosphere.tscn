@@ -1,0 +1,77 @@
+[gd_scene load_steps=10 format=3 uid="uid://n4tlbqqhk7rh"]
+
+[ext_resource type="Shader" path="res://addons/shaders/body.gdshader" id="1_44m2i"]
+[ext_resource type="Texture2D" uid="uid://bq33q81jxrx46" path="res://addons/noises/planet_no_atmosphere.tres" id="2_36jis"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l4rno"]
+render_priority = 0
+shader = ExtResource("1_44m2i")
+shader_parameter/color_1 = Color(0.192157, 0.188235, 0.180392, 1)
+shader_parameter/color_1_treshold = 0.257
+shader_parameter/color_1_roughness = 0.0
+shader_parameter/color_1_emit = null
+shader_parameter/color_2 = Color(0.580392, 0.564706, 0.552941, 1)
+shader_parameter/color_2_treshold = 0.332
+shader_parameter/color_3 = Color(0.854902, 0.85098, 0.843137, 1)
+shader_parameter/color_3_treshold = 0.44
+shader_parameter/color_4 = Color(0.941176, 0.941176, 0.941176, 1)
+shader_parameter/color_4_treshold = 0.638
+shader_parameter/color_5 = Color(0.764706, 0.760784, 0.745098, 1)
+shader_parameter/color_5_treshold = 1.0
+shader_parameter/emit = null
+shader_parameter/noise_gaseous = false
+shader_parameter/noise_gaseous_speed = null
+shader_parameter/noise_scale = 1.0
+shader_parameter/noise = ExtResource("2_36jis")
+
+[sub_resource type="SphereMesh" id="SphereMesh_wxhma"]
+material = SubResource("ShaderMaterial_l4rno")
+
+[sub_resource type="Animation" id="Animation_rs8cm"]
+resource_name = "Rotation"
+length = 60.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 60),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jtf4x"]
+_data = {
+"Rotation": SubResource("Animation_rs8cm")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1a5k4"]
+animation = &"Rotation"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_1k3hl"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_0eash"]
+graph_offset = Vector2(-348, 151)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_1a5k4")
+nodes/Animation/position = Vector2(-20, 140)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_1k3hl")
+nodes/TimeScale/position = Vector2(140, 140)
+node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Animation"]
+
+[node name="PlanetNoAtmosphere" type="MeshInstance3D"]
+transform = Transform3D(200, 0, 0.000893275, 0, 200, 0, -0.000893275, 0, 200, 0, 0, 0)
+mesh = SubResource("SphereMesh_wxhma")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jtf4x")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeBlendTree_0eash")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/TimeScale/scale = 0.4

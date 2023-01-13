@@ -1,0 +1,97 @@
+[gd_scene load_steps=13 format=3 uid="uid://37xrispghc0o"]
+
+[ext_resource type="Shader" path="res://addons/shaders/body.gdshader" id="1_kd5tp"]
+[ext_resource type="Shader" path="res://addons/shaders/atmosphere.gdshader" id="1_ng8d0"]
+[ext_resource type="Texture2D" uid="uid://dxjapfacsp3fk" path="res://addons/noises/star.tres" id="2_5vvxo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6b4el"]
+render_priority = 0
+shader = ExtResource("1_kd5tp")
+shader_parameter/color_1 = Color(0.435294, 0.129412, 0, 1)
+shader_parameter/color_1_treshold = 0.4
+shader_parameter/color_1_roughness = 0.0
+shader_parameter/color_1_emit = null
+shader_parameter/color_2 = Color(1, 0.403922, 0, 1)
+shader_parameter/color_2_treshold = 0.5
+shader_parameter/color_3 = Color(1, 0.639216, 0.25098, 1)
+shader_parameter/color_3_treshold = 0.6
+shader_parameter/color_4 = Color(1, 0.403922, 0, 1)
+shader_parameter/color_4_treshold = 0.7
+shader_parameter/color_5 = Color(1, 0.639216, 0.25098, 1)
+shader_parameter/color_5_treshold = 1.0
+shader_parameter/emit = true
+shader_parameter/noise_gaseous = true
+shader_parameter/noise_gaseous_speed = 0.08
+shader_parameter/noise_scale = 10.0
+shader_parameter/noise = ExtResource("2_5vvxo")
+
+[sub_resource type="SphereMesh" id="SphereMesh_rrqai"]
+material = SubResource("ShaderMaterial_6b4el")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fag0l"]
+render_priority = 0
+shader = ExtResource("1_ng8d0")
+shader_parameter/color_1 = Color(0.435294, 0.129412, 0, 1)
+shader_parameter/color_2 = Color(1, 0.639216, 0.25098, 1)
+shader_parameter/alpha = 0.55
+shader_parameter/amount = 4.5
+shader_parameter/intensity = 4.0
+shader_parameter/emit = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_6bher"]
+material = SubResource("ShaderMaterial_fag0l")
+
+[sub_resource type="Animation" id="Animation_eqom4"]
+resource_name = "Rotation"
+length = 60.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 60),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7ups7"]
+_data = {
+"Rotation": SubResource("Animation_eqom4")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_luras"]
+animation = &"Rotation"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_a3b21"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_rbgkd"]
+graph_offset = Vector2(-304.528, 151.464)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_luras")
+nodes/Animation/position = Vector2(-20, 140)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_a3b21")
+nodes/TimeScale/position = Vector2(140, 140)
+node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Animation"]
+
+[node name="Star" type="MeshInstance3D"]
+transform = Transform3D(335.841, 0, -1152.05, 0, 1200, 0, 1152.05, 0, 335.841, 0, 0, 0)
+mesh = SubResource("SphereMesh_rrqai")
+
+[node name="Atmosphere" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.04, 0, 0, 0, 1.04, 0, 0, 0, 1.04, 0, 0, 0)
+sorting_offset = 5.0
+mesh = SubResource("SphereMesh_6bher")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7ups7")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeBlendTree_rbgkd")
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/TimeScale/scale = 0.4

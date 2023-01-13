@@ -4,6 +4,7 @@ shader_type spatial;
 uniform vec4 color_1 : source_color = vec4(0.17, 0.55, 1.0, 1.0);
 uniform float color_1_treshold : hint_range(0, 1) = 0.54;
 uniform float color_1_roughness : hint_range(0, 1) = 0.1;
+uniform bool color_1_emit = false;
 uniform vec4 color_2 : source_color = vec4(1.0, 0.94, 0.76, 1.0);
 uniform float color_2_treshold : hint_range(0, 1) = 0.56;
 uniform vec4 color_3 : source_color = vec4(0.34, 0.74, 0.5, 1.0);
@@ -56,6 +57,9 @@ void fragment() {
 	if (d < color_1_treshold) {
 		color = color_1;
 		roughness = color_1_roughness;
+		if (color_1_emit) {
+			EMISSION = color_1.rgb;
+		}
 	}
 	else if (d < color_2_treshold) {
 		color = color_2;
