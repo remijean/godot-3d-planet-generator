@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ctb16ux0txuvm"]
+[gd_scene load_steps=13 format=3]
 
 [ext_resource type="Texture2D" uid="uid://xndytbjhb5in" path="res://addons/noises/planet_lava.tres" id="2_ndv8o"]
 [ext_resource type="Shader" path="res://addons/shaders/body.gdshader" id="3_wyf4x"]

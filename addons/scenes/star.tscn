@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://37xrispghc0o"]
+[gd_scene load_steps=13 format=3 uid="uid://c1lxtdgeggnej"]
 
 [ext_resource type="Shader" path="res://addons/shaders/body.gdshader" id="1_kd5tp"]
 [ext_resource type="Shader" path="res://addons/shaders/atmosphere.gdshader" id="1_ng8d0"]
@@ -7,10 +7,11 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6b4el"]
 render_priority = 0
 shader = ExtResource("1_kd5tp")
+shader_parameter/emit = true
 shader_parameter/color_1 = Color(0.435294, 0.129412, 0, 1)
 shader_parameter/color_1_treshold = 0.4
 shader_parameter/color_1_roughness = 0.0
-shader_parameter/color_1_emit = null
+shader_parameter/color_1_emit = false
 shader_parameter/color_2 = Color(1, 0.403922, 0, 1)
 shader_parameter/color_2_treshold = 0.5
 shader_parameter/color_3 = Color(1, 0.639216, 0.25098, 1)
@@ -19,7 +20,6 @@ shader_parameter/color_4 = Color(1, 0.403922, 0, 1)
 shader_parameter/color_4_treshold = 0.7
 shader_parameter/color_5 = Color(1, 0.639216, 0.25098, 1)
 shader_parameter/color_5_treshold = 1.0
-shader_parameter/emit = true
 shader_parameter/noise_gaseous = true
 shader_parameter/noise_gaseous_speed = 0.05
 shader_parameter/noise_scale = 3.0
@@ -77,7 +77,7 @@ nodes/TimeScale/position = Vector2(140, 140)
 node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Animation"]
 
 [node name="Star" type="MeshInstance3D"]
-transform = Transform3D(-945.182, 0, 739.345, 0, 1200, 0, -739.345, 0, -945.182, 0, 0, 0)
+transform = Transform3D(-782.216, 0, 910.021, 0, 1200, 0, -910.021, 0, -782.216, 0, 0, 0)
 mesh = SubResource("SphereMesh_rrqai")
 
 [node name="Atmosphere" type="MeshInstance3D" parent="."]

@@ -4,7 +4,6 @@
 noise_type = 0
 frequency = 0.004
 fractal_type = 3
-fractal_lacunarity = 1.971
 fractal_weighted_strength = 0.5
 
 [resource]

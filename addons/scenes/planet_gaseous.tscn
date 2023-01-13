@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://132ulexawuba"]
+[gd_scene load_steps=13 format=3]
 
 [ext_resource type="Shader" path="res://addons/shaders/body.gdshader" id="1_h1bdw"]
 [ext_resource type="Shader" path="res://addons/shaders/atmosphere.gdshader" id="2_4iyha"]

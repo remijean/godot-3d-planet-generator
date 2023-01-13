@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://6d50h2f8nvt7"]
+[gd_scene load_steps=15 format=3 uid="uid://biy37ccrqck53"]
 
 [ext_resource type="Shader" path="res://addons/shaders/clouds.gdshader" id="1_oq3cf"]
 [ext_resource type="Texture2D" uid="uid://dubbc0h804fot" path="res://addons/noises/planet_ice.tres" id="2_gmlef"]
@@ -18,6 +18,7 @@ shader_parameter/noise_texture = ExtResource("2_gmlef")
 render_priority = 0
 next_pass = SubResource("ShaderMaterial_xtehg")
 shader = ExtResource("3_h2vdp")
+shader_parameter/emit = false
 shader_parameter/color_1 = Color(0.309804, 0.611765, 0.784314, 1)
 shader_parameter/color_1_treshold = 0.287
 shader_parameter/color_1_roughness = 0.0
@@ -30,7 +31,6 @@ shader_parameter/color_4 = Color(0.92549, 0.937255, 0.972549, 1)
 shader_parameter/color_4_treshold = 0.573
 shader_parameter/color_5 = Color(0.819608, 0.847059, 0.886275, 1)
 shader_parameter/color_5_treshold = 1.0
-shader_parameter/emit = false
 shader_parameter/noise_gaseous = false
 shader_parameter/noise_gaseous_speed = 0.0025
 shader_parameter/noise_scale = 1.0
@@ -88,7 +88,7 @@ nodes/TimeScale/position = Vector2(140, 140)
 node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Animation"]
 
 [node name="PlanetIce" type="MeshInstance3D"]
-transform = Transform3D(336.986, 0, 175.615, 0, 380, 0, -175.615, 0, 336.986, 0, 0, 0)
+transform = Transform3D(361.032, 0, 118.557, 0, 380, 0, -118.557, 0, 361.032, 0, 0, 0)
 mesh = SubResource("SphereMesh_5tvr0")
 skeleton = NodePath(".")
 
