@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3]
+[gd_scene load_steps=13 format=3 uid="uid://dneumird5vcjw"]
 
 [ext_resource type="Texture2D" uid="uid://xndytbjhb5in" path="res://addons/naejimer_3d_planet_generator/noises/planet_lava.tres" id="2_ndv8o"]
 [ext_resource type="Shader" path="res://addons/naejimer_3d_planet_generator/shaders/body.gdshader" id="3_wyf4x"]
@@ -7,6 +7,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6wpjb"]
 render_priority = 0
 shader = ExtResource("3_wyf4x")
+shader_parameter/emit = 0.0
 shader_parameter/color_1 = Color(1, 0.537255, 0.2, 1)
 shader_parameter/color_1_treshold = 0.253
 shader_parameter/color_1_roughness = 0.0
@@ -19,7 +20,6 @@ shader_parameter/color_4 = Color(0.321569, 0.2, 0.247059, 1)
 shader_parameter/color_4_treshold = 0.653
 shader_parameter/color_5 = Color(0.239216, 0.160784, 0.211765, 1)
 shader_parameter/color_5_treshold = 1.0
-shader_parameter/emit = false
 shader_parameter/noise_gaseous = false
 shader_parameter/noise_gaseous_speed = 0.0025
 shader_parameter/noise_scale = 1.0
@@ -77,7 +77,7 @@ nodes/TimeScale/position = Vector2(140, 140)
 node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Animation"]
 
 [node name="PlanetLava" type="MeshInstance3D"]
-transform = Transform3D(-317.065, 0, 209.451, 0, 380, 0, -209.451, 0, -317.065, 0, 0, 0)
+transform = Transform3D(294.474, 0, 240.177, 0, 380, 0, -240.177, 0, 294.474, 0, 0, 0)
 mesh = SubResource("SphereMesh_621es")
 skeleton = NodePath(".")
 

@@ -1,7 +1,7 @@
 // Based on: https://www.reddit.com/r/godot/comments/gqhy3g/procedural_planet_generator_based_on_planetarium/
 shader_type spatial;
 
-uniform bool emit = false;
+uniform float emit : hint_range(0, 16) = 0.0;
 uniform vec4 color_1 : source_color = vec4(0.17, 0.55, 1.0, 1.0);
 uniform float color_1_treshold : hint_range(0, 1) = 0.54;
 uniform float color_1_roughness : hint_range(0, 1) = 0.1;
@@ -73,8 +73,8 @@ void fragment() {
 	else if (d < color_5_treshold) {
 		color = color_5;
 	}
-	if(emit) {
-		EMISSION = color.rgb;
+	if (bool(emit)) {
+		EMISSION = color.rgb * emit;
 	}
 	ALBEDO = color.rgb;
 	ROUGHNESS = roughness;

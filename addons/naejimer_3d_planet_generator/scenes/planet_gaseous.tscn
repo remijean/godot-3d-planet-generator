@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3]
+[gd_scene load_steps=13 format=3 uid="uid://c1ml4yvlgnbbv"]
 
 [ext_resource type="Shader" path="res://addons/naejimer_3d_planet_generator/shaders/body.gdshader" id="1_h1bdw"]
 [ext_resource type="Shader" path="res://addons/naejimer_3d_planet_generator/shaders/atmosphere.gdshader" id="2_4iyha"]
@@ -7,10 +7,11 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3sgxv"]
 render_priority = 0
 shader = ExtResource("1_h1bdw")
+shader_parameter/emit = 0.0
 shader_parameter/color_1 = Color(0.784314, 0.545098, 0.227451, 1)
 shader_parameter/color_1_treshold = 0.422
 shader_parameter/color_1_roughness = 0.0
-shader_parameter/color_1_emit = null
+shader_parameter/color_1_emit = false
 shader_parameter/color_2 = Color(0.564706, 0.380392, 0.301961, 1)
 shader_parameter/color_2_treshold = 0.505
 shader_parameter/color_3 = Color(0.827451, 0.611765, 0.494118, 1)
@@ -19,7 +20,6 @@ shader_parameter/color_4 = Color(0.654902, 0.611765, 0.52549, 1)
 shader_parameter/color_4_treshold = 0.574
 shader_parameter/color_5 = Color(0.25098, 0.266667, 0.211765, 1)
 shader_parameter/color_5_treshold = 1.0
-shader_parameter/emit = null
 shader_parameter/noise_gaseous = true
 shader_parameter/noise_gaseous_speed = 0.0025
 shader_parameter/noise_scale = 1.425
@@ -36,7 +36,7 @@ shader_parameter/color_2 = Color(0.764706, 0.560784, 0.470588, 1)
 shader_parameter/alpha = 0.8
 shader_parameter/amount = 4.5
 shader_parameter/intensity = 4.0
-shader_parameter/emit = null
+shader_parameter/emit = false
 
 [sub_resource type="SphereMesh" id="SphereMesh_k2gpb"]
 material = SubResource("ShaderMaterial_0baun")
@@ -77,7 +77,7 @@ nodes/TimeScale/position = Vector2(140, 140)
 node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Animation"]
 
 [node name="PlanetGaseous" type="MeshInstance3D"]
-transform = Transform3D(799.885, 0, -13.5517, 0, 800, 0, 13.5517, 0, 799.885, 0, 0, 0)
+transform = Transform3D(782.459, 0, 166.604, 0, 800, 0, -166.604, 0, 782.459, 0, 0, 0)
 mesh = SubResource("SphereMesh_mt6w6")
 
 [node name="Atmosphere" type="MeshInstance3D" parent="."]

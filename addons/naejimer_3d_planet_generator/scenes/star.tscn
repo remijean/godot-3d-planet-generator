@@ -7,7 +7,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6b4el"]
 render_priority = 0
 shader = ExtResource("1_b0k00")
-shader_parameter/emit = true
+shader_parameter/emit = 3.0
 shader_parameter/color_1 = Color(0.435294, 0.129412, 0, 1)
 shader_parameter/color_1_treshold = 0.4
 shader_parameter/color_1_roughness = 0.0
@@ -35,7 +35,7 @@ shader_parameter/color_1 = Color(0.435294, 0.129412, 0, 1)
 shader_parameter/color_2 = Color(1, 0.639216, 0.25098, 1)
 shader_parameter/alpha = 0.55
 shader_parameter/amount = 4.5
-shader_parameter/intensity = 4.0
+shader_parameter/intensity = 10.0
 shader_parameter/emit = true
 
 [sub_resource type="SphereMesh" id="SphereMesh_6bher"]
@@ -77,7 +77,7 @@ nodes/TimeScale/position = Vector2(140, 140)
 node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Animation"]
 
 [node name="Star" type="MeshInstance3D"]
-transform = Transform3D(736.412, 0, 947.469, 0, 1200, 0, -947.469, 0, 736.412, 0, 0, 0)
+transform = Transform3D(-1021.6, 0, -629.555, 0, 1200, 0, 629.555, 0, -1021.6, 0, 0, 0)
 cast_shadow = 0
 mesh = SubResource("SphereMesh_rrqai")
 

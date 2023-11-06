@@ -18,11 +18,11 @@ shader_parameter/noise_texture = ExtResource("2_83j0s")
 render_priority = 0
 next_pass = SubResource("ShaderMaterial_xtehg")
 shader = ExtResource("3_twxga")
-shader_parameter/emit = false
+shader_parameter/emit = 0.0
 shader_parameter/color_1 = Color(0.309804, 0.611765, 0.784314, 1)
 shader_parameter/color_1_treshold = 0.287
 shader_parameter/color_1_roughness = 0.0
-shader_parameter/color_1_emit = null
+shader_parameter/color_1_emit = false
 shader_parameter/color_2 = Color(0.470588, 0.678431, 0.807843, 1)
 shader_parameter/color_2_treshold = 0.374
 shader_parameter/color_3 = Color(0.615686, 0.745098, 0.831373, 1)
@@ -88,7 +88,7 @@ nodes/TimeScale/position = Vector2(140, 140)
 node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Animation"]
 
 [node name="PlanetIce" type="MeshInstance3D"]
-transform = Transform3D(379.946, 0, 6.36713, 0, 380, 0, -6.36713, 0, 379.946, 0, 0, 0)
+transform = Transform3D(376.598, 0, 50.7287, 0, 380, 0, -50.7287, 0, 376.598, 0, 0, 0)
 mesh = SubResource("SphereMesh_5tvr0")
 skeleton = NodePath(".")
 

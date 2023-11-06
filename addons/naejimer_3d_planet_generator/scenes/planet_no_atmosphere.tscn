@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3]
+[gd_scene load_steps=10 format=3 uid="uid://tnvbntvduo2b"]
 
 [ext_resource type="Shader" path="res://addons/naejimer_3d_planet_generator/shaders/body.gdshader" id="1_44m2i"]
 [ext_resource type="Texture2D" uid="uid://bq33q81jxrx46" path="res://addons/naejimer_3d_planet_generator/noises/planet_no_atmosphere.tres" id="2_36jis"]
@@ -6,10 +6,11 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l4rno"]
 render_priority = 0
 shader = ExtResource("1_44m2i")
+shader_parameter/emit = 0.0
 shader_parameter/color_1 = Color(0.192157, 0.188235, 0.180392, 1)
 shader_parameter/color_1_treshold = 0.257
 shader_parameter/color_1_roughness = 0.0
-shader_parameter/color_1_emit = null
+shader_parameter/color_1_emit = false
 shader_parameter/color_2 = Color(0.580392, 0.564706, 0.552941, 1)
 shader_parameter/color_2_treshold = 0.332
 shader_parameter/color_3 = Color(0.854902, 0.85098, 0.843137, 1)
@@ -18,9 +19,8 @@ shader_parameter/color_4 = Color(0.941176, 0.941176, 0.941176, 1)
 shader_parameter/color_4_treshold = 0.638
 shader_parameter/color_5 = Color(0.764706, 0.760784, 0.745098, 1)
 shader_parameter/color_5_treshold = 1.0
-shader_parameter/emit = null
 shader_parameter/noise_gaseous = false
-shader_parameter/noise_gaseous_speed = null
+shader_parameter/noise_gaseous_speed = 0.0025
 shader_parameter/noise_scale = 1.0
 shader_parameter/noise = ExtResource("2_36jis")
 
@@ -62,7 +62,7 @@ nodes/TimeScale/position = Vector2(140, 140)
 node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Animation"]
 
 [node name="PlanetNoAtmosphere" type="MeshInstance3D"]
-transform = Transform3D(200, 0, 0.000893275, 0, 200, 0, -0.000893275, 0, 200, 0, 0, 0)
+transform = Transform3D(-44.609, 0, 194.962, 0, 200, 0, -194.962, 0, -44.609, 0, 0, 0)
 mesh = SubResource("SphereMesh_wxhma")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

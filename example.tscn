@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://yo6lqoksa53k" path="res://addons/naejimer_3d_planet_generator/scenes/planet_terrestrial.tscn" id="2_j1hjd"]
 [ext_resource type="PackedScene" path="res://addons/naejimer_3d_planet_generator/scenes/planet_lava.tscn" id="3_3uru6"]
 [ext_resource type="PackedScene" uid="uid://biy37ccrqck53" path="res://addons/naejimer_3d_planet_generator/scenes/planet_ice.tscn" id="3_mm0k4"]
-[ext_resource type="PackedScene" uid="uid://blp5yrvjuksao" path="res://addons/naejimer_3d_planet_generator/scenes/planet_gaseous.tscn" id="4_bn1xh"]
-[ext_resource type="PackedScene" uid="uid://cfpg7xkvqhqd0" path="res://addons/naejimer_3d_planet_generator/scenes/planet_sand.tscn" id="4_h2dlt"]
+[ext_resource type="PackedScene" path="res://addons/naejimer_3d_planet_generator/scenes/planet_gaseous.tscn" id="4_bn1xh"]
+[ext_resource type="PackedScene" uid="uid://dbexddi1rwbt4" path="res://addons/naejimer_3d_planet_generator/scenes/planet_sand.tscn" id="4_h2dlt"]
 [ext_resource type="PackedScene" path="res://addons/naejimer_3d_planet_generator/scenes/planet_no_atmosphere.tscn" id="4_mbgn3"]
 [ext_resource type="PackedScene" uid="uid://c1lxtdgeggnej" path="res://addons/naejimer_3d_planet_generator/scenes/star.tscn" id="6_7xwvl"]
 
@@ -20,27 +20,27 @@ glow_blend_mode = 0
 [node name="Planets" type="Node3D" parent="."]
 
 [node name="PlanetNoAtmosphere" parent="Planets" instance=ExtResource("4_mbgn3")]
-transform = Transform3D(-36.8331, 0, -196.579, 0, 200, 0, 196.579, 0, -36.8331, 0, 0, 0)
+transform = Transform3D(200, 0, 0.000893276, 0, 200, 0, -0.000893276, 0, 200, 0, 0, 0)
 skeleton = NodePath("../..")
 
 [node name="PlanetIce" parent="Planets" instance=ExtResource("3_mm0k4")]
-transform = Transform3D(234.591, 0, 298.943, 0, 380, 0, -298.943, 0, 234.591, 369.316, 0, 0)
+transform = Transform3D(-377.49, 0, 43.6052, 0, 380, 0, -43.6052, 0, -377.49, 369.316, 0, 0)
 
 [node name="PlanetLava" parent="Planets" instance=ExtResource("3_3uru6")]
-transform = Transform3D(234.591, 0, 298.943, 0, 380, 0, -298.943, 0, 234.591, 844.344, 0, 0)
+transform = Transform3D(-377.49, 0, 43.6052, 0, 380, 0, -43.6052, 0, -377.49, 844.344, 0, 0)
 
 [node name="PlanetSand" parent="Planets" instance=ExtResource("4_h2dlt")]
-transform = Transform3D(234.59, 0, 298.942, 0, 380, 0, -298.942, 0, 234.59, 1317.07, 0, 0)
+transform = Transform3D(-377.488, 0, 43.6051, 0, 380, 0, -43.6051, 0, -377.488, 1317.07, 0, 0)
 
 [node name="PlanetTerrestrial" parent="Planets" instance=ExtResource("2_j1hjd")]
-transform = Transform3D(246.938, 0, 314.677, 0, 400, 0, -314.677, 0, 246.938, 1803.38, 0, 0)
+transform = Transform3D(-397.358, 0, 45.9003, 0, 400, 0, -45.9003, 0, -397.358, 1803.38, 0, 0)
 
 [node name="PlanetGaseous" parent="Planets" instance=ExtResource("4_bn1xh")]
-transform = Transform3D(340.031, 0, 724.14, 0, 800, 0, -724.14, 0, 340.031, 2515.88, 0, 0)
+transform = Transform3D(-640.891, 0, -478.81, 0, 800, 0, 478.81, 0, -640.891, 2515.88, 0, 0)
 skeleton = NodePath("../..")
 
 [node name="Star" parent="Planets" instance=ExtResource("6_7xwvl")]
-transform = Transform3D(1048.72, 0, 583.257, 0, 1200, 0, -583.257, 0, 1048.72, 3658.05, 0, 0)
+transform = Transform3D(-911.4, 0, -780.611, 0, 1200, 0, 780.611, 0, -911.4, 3658.05, 0, 0)
 layers = 2
 skeleton = NodePath("../..")
 
