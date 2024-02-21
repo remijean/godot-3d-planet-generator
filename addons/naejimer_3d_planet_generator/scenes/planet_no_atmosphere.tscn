@@ -59,7 +59,7 @@ nodes/Animation/node = SubResource("AnimationNodeAnimation_1a5k4")
 nodes/Animation/position = Vector2(-20, 140)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_1k3hl")
 nodes/TimeScale/position = Vector2(140, 140)
-node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Animation"]
+node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
 
 [node name="PlanetNoAtmosphere" type="MeshInstance3D"]
 transform = Transform3D(-44.609, 0, 194.962, 0, 200, 0, -194.962, 0, -44.609, 0, 0, 0)
@@ -71,7 +71,9 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jtf4x")
+}
 tree_root = SubResource("AnimationNodeBlendTree_0eash")
 anim_player = NodePath("../AnimationPlayer")
-active = true
 parameters/TimeScale/scale = 0.4

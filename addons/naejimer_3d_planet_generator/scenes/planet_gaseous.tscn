@@ -74,7 +74,7 @@ nodes/Animation/node = SubResource("AnimationNodeAnimation_wdmtw")
 nodes/Animation/position = Vector2(-20, 140)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_t8t6j")
 nodes/TimeScale/position = Vector2(140, 140)
-node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Animation"]
+node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
 
 [node name="PlanetGaseous" type="MeshInstance3D"]
 transform = Transform3D(782.459, 0, 166.604, 0, 800, 0, -166.604, 0, 782.459, 0, 0, 0)
@@ -91,7 +91,9 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vymfv")
+}
 tree_root = SubResource("AnimationNodeBlendTree_fm5i7")
 anim_player = NodePath("../AnimationPlayer")
-active = true
 parameters/TimeScale/scale = 0.1

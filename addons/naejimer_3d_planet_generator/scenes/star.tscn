@@ -74,7 +74,7 @@ nodes/Animation/node = SubResource("AnimationNodeAnimation_luras")
 nodes/Animation/position = Vector2(-20, 140)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_a3b21")
 nodes/TimeScale/position = Vector2(140, 140)
-node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Animation"]
+node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
 
 [node name="Star" type="MeshInstance3D"]
 transform = Transform3D(-1021.6, 0, -629.555, 0, 1200, 0, 629.555, 0, -1021.6, 0, 0, 0)
@@ -92,7 +92,9 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7ups7")
+}
 tree_root = SubResource("AnimationNodeBlendTree_rbgkd")
 anim_player = NodePath("../AnimationPlayer")
-active = true
 parameters/TimeScale/scale = 0.6

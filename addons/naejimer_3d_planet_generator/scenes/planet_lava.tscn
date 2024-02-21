@@ -74,7 +74,7 @@ nodes/Animation/node = SubResource("AnimationNodeAnimation_udpb3")
 nodes/Animation/position = Vector2(-20, 140)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_ji6rl")
 nodes/TimeScale/position = Vector2(140, 140)
-node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Animation"]
+node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
 
 [node name="PlanetLava" type="MeshInstance3D"]
 transform = Transform3D(294.474, 0, 240.177, 0, 380, 0, -240.177, 0, 294.474, 0, 0, 0)
@@ -93,7 +93,9 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_37sus")
+}
 tree_root = SubResource("AnimationNodeBlendTree_wujo7")
 anim_player = NodePath("../AnimationPlayer")
-active = true
 parameters/TimeScale/scale = 0.08

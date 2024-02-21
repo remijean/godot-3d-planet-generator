@@ -7,7 +7,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cr8r6"]
 render_priority = 0
 shader = ExtResource("1_xf64t")
-shader_parameter/emit = false
+shader_parameter/emit = 0.0
 shader_parameter/color_1 = Color(0.984314, 0.882353, 0.733333, 1)
 shader_parameter/color_1_treshold = 0.51
 shader_parameter/color_1_roughness = 0.0
@@ -74,7 +74,7 @@ nodes/Animation/node = SubResource("AnimationNodeAnimation_udpb3")
 nodes/Animation/position = Vector2(-20, 140)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_ji6rl")
 nodes/TimeScale/position = Vector2(140, 140)
-node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Animation"]
+node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
 
 [node name="PlanetSand" type="MeshInstance3D"]
 transform = Transform3D(379.79, 0, 12.6299, 0, 380, 0, -12.6299, 0, 379.79, 0, 0, 0)
@@ -93,7 +93,9 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_37sus")
+}
 tree_root = SubResource("AnimationNodeBlendTree_wujo7")
 anim_player = NodePath("../AnimationPlayer")
-active = true
 parameters/TimeScale/scale = 0.08
