@@ -8,7 +8,7 @@ Three shaders to generate 3D animated planets and stars in Godot 4:
 
 - Planet body generation shader
 - Cloud generation shader
-- Astmosphere generation shader
+- Atmosphere generation shader
 
 The project contains seven example planets:
 
