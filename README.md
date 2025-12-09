@@ -22,6 +22,11 @@ The project contains seven example planets:
 
  **FAQ and more information: [https://naejimer.itch.io/godot-3d-planet-generator](https://naejimer.itch.io/godot-3d-planet-generator)**
 
+## Previews
+
+![Preview front](https://github.com/user-attachments/assets/9e8ea3b4-a716-4e2d-a91c-2422fb839500)
+![Preview back](https://github.com/user-attachments/assets/83f2a313-b96f-4edf-8dee-3fad3b32e739)
+
 ## Screenshots
 
 ![No atmosphere planet](https://user-images.githubusercontent.com/4329231/212466832-980636cb-4ccb-4feb-8fde-1a90fc33a44a.png)
